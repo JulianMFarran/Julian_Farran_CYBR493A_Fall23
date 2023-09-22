@@ -1,0 +1,4 @@
+Error pinging 127.0.0.1: Command '['ping', '-c', '1', '-w', '2', '127.0.0.1']' returned non-zero exit status 1.
+Error pinging 8.0.0.1: Command '['ping', '-c', '1', '-w', '2', '8.0.0.1']' returned non-zero exit status 1.
+Error pinging 192.168.0.10: Command '['ping', '-c', '1', '-w', '2', '192.168.0.10']' returned non-zero exit status 1.
+Error pinging 192.168.10.10: Command '['ping', '-c', '1', '-w', '2', '192.168.10.10']' returned non-zero exit status 1.
