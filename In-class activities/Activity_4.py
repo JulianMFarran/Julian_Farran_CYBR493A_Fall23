@@ -15,7 +15,7 @@ for ip_address in ip_addresses:
         output_file.write(ping_result)
         output_file.write("\n")
     except subprocess.CalledProcessError as e:
-        output_file.write(f"Error pinging {ip_address}: {e}\n")
+        output_file.write(f"The ping was successful {ip_address}: {e}\n")
     except Exception as e:
         output_file.write(f"An error occurred while pinging {ip_address}: {str(e)}\n")
 
