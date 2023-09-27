@@ -5,29 +5,29 @@
 # including checking a password, and pinging IP addresses.
 # THE CORRECT PASSWORD IS *"Fluffkinz"*
 # // Any other input other than "Fluffkinz" will be incorrect.
-
 import subprocess
 from In_Class_3 import WordsChecker
-import Activity_4
-from Activity_4 import ping_ip_addresses_and_save  # Import the function we created
+from Activity_4 import ping_ip_addresses_and_save
+from In_Class_3 import CoolWordsChecker
 
 def main():
     print("Select an activity:")
     print("1. Check Password")
     print("2. Ping IP Addresses")
+    print("3. Use WordsChecker")
     choice = input("Enter the number of the activity you want to execute: ")
 
     if choice == "1":
-        WordsChecker() # Call the WordsChecker function from In_Class_3
+        if CoolWordsChecker():
+            print("Password is correct. Moving to the next functionality.")
+        else:
+            print("Incorrect password. You are stuck here.")
     elif choice == "2":
-        # List of IP addresses to ping
         ip_addresses_to_ping = ["127.0.0.1", "8.0.0.1", "192.168.0.10", "192.168.10.10"]
-
-        # Specify the path for the output file
         output_file_path = "pinger.txt"
-
-        # Call the ping_ip_addresses_and_save function from Activity_4
         ping_ip_addresses_and_save(ip_addresses_to_ping, output_file_path)
+    elif choice == "3":
+        WordsChecker()  # Call the WordsChecker function
     else:
         print("Invalid choice")
 
