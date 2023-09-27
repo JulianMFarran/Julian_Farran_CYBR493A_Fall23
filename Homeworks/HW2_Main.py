@@ -1,4 +1,4 @@
-# Importing the methods from HW2.py
+ # Importing the methods from HW2.py
 from HW2 import ValidLength, HasNumber, HasSymbol
 
 def main():
