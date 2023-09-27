@@ -2,9 +2,9 @@
 # Date: 2023-09-27
 # In Class Activity 5
 # Description: This program allows the user to choose between different activities,
-# including checking a password, pinging IP addresses, and more.
+# including checking a password, and pinging IP addresses.
 # THE CORRECT PASSWORD IS *"Fluffkinz"*
-# // Any other input will be incorrect.
+# // Any other input other than "Fluffkinz" will be incorrect.
 
 import subprocess
 from In_Class_3 import WordsChecker
