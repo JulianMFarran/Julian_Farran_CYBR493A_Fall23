@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 # Define the URL you want to scrape
-url = 'https://wvrnboard.wv.gov/Pages/Search.aspx?q=workforce%20data'  # Replace with the URL of the website you want to scrape
+url = ''  # Replace with the URL of the website you want to scrape
 
 # Send an HTTP GET request to the URL
 response = requests.get(url)
