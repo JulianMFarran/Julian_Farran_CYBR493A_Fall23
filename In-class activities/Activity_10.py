@@ -1,14 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
-# Package to connect to PostgreSQL
 import psycopg2
 
+# MyDB class for database connection
 class MyDB(object):
     _db_connection = None
     _db_cur = None
 
     def __init__(self):
-        # Replace 'your_user' and 'your_password' with your PostgreSQL username and password
         self._db_connection = psycopg2.connect(host='localhost', user='cybrUser', password='c-4-9-3-A', dbname='cybrDB', port='5432')
         self._db_connection.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
         self._db_cur = self._db_connection.cursor()
@@ -25,8 +24,7 @@ class MyDB(object):
         if self._db_connection is not None:
             self._db_connection.close()
 
-
-# Function to extract bug information from the provided URL
+# Function to extract bug information from a URL
 def extract_bug_info(url):
     response = requests.get(url)
     if response.status_code != 200:
@@ -55,13 +53,20 @@ def extract_bug_info(url):
 
     return bug_info
 
-# URL of the bug page
+# URL of the bug page (modify with the actual URL)
 bug_page_url = "https://bugs.launchpad.net/ubuntu/+bugs?field.searchtext=&field.status%3Alist=EXPIRED&field.status%3Alist=CONFIRMED&field.status%3Alist=TRIAGED&field.status%3Alist=INPROGRESS&field.status%3Alist=FIXCOMMITTED&field.status%3Alist=FIXRELEASED&field.importance%3Alist=UNKNOWN&field.importance%3Alist=UNDECIDED&field.importance%3Alist=CRITICAL&field.importance%3Alist=HIGH&field.importance%3Alist=MEDIUM&field.importance%3Alist=LOW&field.importance%3Alist=WISHLIST&field.information_type%3Alist=PUBLIC&field.information_type%3Alist=PUBLICSECURITY&field.information_type%3Alist=PRIVATESECURITY&field.information_type%3Alist=USERDATA&assignee_option=any&field.assignee=&field.bug_reporter=&field.bug_commenter=&field.subscriber=&field.structural_subscriber=&field.component-empty-marker=1&field.tag=&field.tags_combinator=ANY&field.status_upstream-empty-marker=1&field.has_cve.used=&field.omit_dupes.used=&field.omit_dupes=on&field.affects_me.used=&field.has_no_package.used=&field.has_patch.used=&field.has_branches.used=&field.has_branches=on&field.has_no_branches.used=&field.has_no_branches=on&field.has_blueprints.used=&field.has_blueprints=on&field.has_no_blueprints.used=&field.has_no_blueprints=on&search=Search&orderby=-importance&memo=75&start=0"
 
 # Extract bug information
 bug_info = extract_bug_info(bug_page_url)
 
 if bug_info:
+    for bug in bug_info:
+        print(f"Bug Number: {bug[0]}")
+        print(f"Status: {bug[1]}")
+        print(f"Heat: {bug[2]}")
+        print(f"Title: {bug[3]}")
+        print("=" * 40)
+
     db = MyDB()  # Create a MyDB instance
 
     table_name = "BugData"  # Modify the table name as needed
@@ -78,4 +83,4 @@ if bug_info:
 
     print(f"Inserted {len(bug_info)} bugs into the database.")
 else:
-    print("No bug information to insert.")
+    print("No bug information to display.")
