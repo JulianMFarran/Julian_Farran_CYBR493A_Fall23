@@ -8,7 +8,7 @@ class BugTrackingSystem:
         page_links = [initial_link]
 
         # Set a maximum number of pages you want to traverse (change as needed)
-        max_pages = 10
+        max_pages = 75
 
         # Initialize a counter
         page_counter = 0
