@@ -29,13 +29,23 @@ def get_cwe_information(url):
         relationships_div = soup.find('div', id='Relationships')
         relationships_text = relationships_div.find('div', class_='indent').text.strip() if relationships_div and relationships_div.find('div', class_='indent') else "N/A"
 
+        # Extract Additional Info (modify as needed based on your HTML structure)
+        additional_info_div = soup.find('div', id='AdditionalInfo')
+        additional_info = additional_info_div.find('div', class_='detail').text.strip() if additional_info_div and additional_info_div.find('div', class_='detail') else "N/A"
+
+        # Extract Summary (modify as needed based on your HTML structure)
+        summary_div = soup.find('div', id='Summary')
+        summary = summary_div.find('div', class_='detail').text.strip() if summary_div and summary_div.find('div', class_='detail') else "N/A"
+
         # Return the extracted information
         return {
             'View ID': view_id,
             'Type': view_type,
             'Objective': objective,
             'Audience': audience_data,
-            'Relationships': relationships_text
+            'Relationships': relationships_text,
+            'AdditionalInfo': additional_info,
+            'Description': summary  # Change 'Summary' to 'Description'
         }
     else:
         print(f'Failed to fetch the URL. Status code: {response.status_code}')
@@ -50,6 +60,8 @@ def print_cwe_information(cwe_info):
         for stakeholder, description in cwe_info['Audience']:
             print(f'  - {stakeholder}: {description}')
         print(f'Relationships: {cwe_info["Relationships"]}')
+        print(f'Additional Info: {cwe_info["AdditionalInfo"]}')
+        print(f'Description: {cwe_info["Description"]}')  # Change 'Summary' to 'Description' 
 
 # Replace 'your_url_here' with the actual URL containing the CWE information
 url = 'https://cwe.mitre.org/data/definitions/888.html'
