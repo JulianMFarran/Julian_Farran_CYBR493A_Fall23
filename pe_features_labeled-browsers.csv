@@ -1,3 +1,0 @@
-file_name,number_of_sections,average_entropy,number_of_imports,number_of_exports,entry_point,image_base,file_size,timestamp,number_of_rva_and_sizes,check_sum,dll_characteristics,size_of_code,size_of_initialized_data,size_of_uninitialized_data,section_alignment,file_alignment,size_of_image,size_of_headers,characteristics,machine,number_of_symbols,hash,label
-firefox.exe,11,3.0545583974796178,17,97,197840,5368709120,686496,1691207725,16,701245,49504,343552,330240,0,4096,512,716800,1024,34,34404,0,9525a41baed6025a6235c953bf4d4ad8,benign
-chrome.exe,13,3.703289912567709,4,3,1232512,5368709120,2680608,1699304378,16,2680974,49504,1939968,727040,0,4096,512,2756608,1024,34,34404,0,75254405e9359258abb4c9bc0dd28f98,benign
